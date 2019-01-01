@@ -16,7 +16,7 @@ i1 = int(g, 0, 1);
 i2 = -int(h, 0, 1);
 
 fprintf('\nsum = %s, %s, %s\n\n', s, i1, i2);
-
+digits()
 fprintf('Catalan 25f = %.25f\n\n', s);
 %% ------------------------------------------------------------------------
 clear;
@@ -43,12 +43,62 @@ figure(3);
 hold on;
 grid on;
 ezplot(theta(t), [0,30]);
-fprintf('');
+
+fprintf('\n\n');
 %% ------------------------------------------------------------------------
 clear;
 fprintf('Answer 3');
 
 syms t;
+x = [-5,0.1:5];
 f(t) = piecewise(t>=0, -3*t^2 + 5, t<0, 3*t^2 + 5);
 
-ezplot(f(t));
+figure(4);
+hold on;
+grid on;
+plot(x, f(x));
+
+fprintf('\n\n');
+%% ------------------------------------------------------------------------
+clear;
+fprintf('Answer 4');
+
+A = eye(3,3) - ones(3,3);
+
+for k=1:9
+    i = int8(k/3) + 1;
+    j = mod(k - 1,3) + 1;
+    
+    fprintf('\ni = %d\tj=%d',i,j);
+    
+    if j>i
+        A(i,j) = i;
+    end
+end
+
+fprintf('\n');
+disp(A);
+fprintf('\n');
+%% ------------------------------------------------------------------------
+clear;
+fprintf('Answer 5');
+
+A = eye(4,4);
+
+for i=1:4
+    if mod(i,2)==1
+        A(i,i) = 0;
+    end
+end
+
+fprintf('\n');
+disp(A);
+fprintf('\n');
+%% ------------------------------------------------------------------------
+clear;
+fprintf('Answer 6');
+
+x = [1:4:2001];
+s = sum(1./(x.*(x+2)));
+
+fprintf('\nsum = %f\n\n', s);

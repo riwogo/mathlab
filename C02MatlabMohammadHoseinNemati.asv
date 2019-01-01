@@ -43,7 +43,59 @@ figure(3);
 hold on;
 grid on;
 ezplot(theta(t), [0,30]);
-fprintf('');
+
+fprintf('\n\n');
 %% ------------------------------------------------------------------------
 clear;
-fprintf('Answer 2');
+fprintf('Answer 3');
+
+syms t;
+x = [-5,0.1:5];
+f(t) = piecewise(t>=0, -3*t^2 + 5, t<0, 3*t^2 + 5);
+
+figure(4);
+hold on;
+grid on;
+plot(x, f(x));
+
+fprintf('\n\n');
+%% ------------------------------------------------------------------------
+clear;
+fprintf('Answer 4');
+
+A = eye(3,3) - ones(3,3);
+
+for k=1:9
+    i = ()k/3;
+    j = mod(k,3);
+    if j>i
+%         A(i,j) = mod(i*j + ((-1)^(i+j)), 3);
+    end
+end
+
+fprintf('\n');
+disp(A);
+fprintf('\n');
+%% ------------------------------------------------------------------------
+clear;
+fprintf('Answer 5');
+
+A = eye(4,4);
+
+for i=1:4
+    if mod(i,2)==1
+        A(i,i) = 0;
+    end
+end
+
+fprintf('\n');
+disp(A);
+fprintf('\n');
+%% ------------------------------------------------------------------------
+clear;
+fprintf('Answer 6');
+
+x = [1:4:2001];
+s = sum(1./(x.*(x+2)));
+
+fprintf('\nsum = %f\n\n', s);
